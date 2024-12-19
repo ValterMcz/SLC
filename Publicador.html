@@ -1,0 +1,113 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicador Gibbor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea {
+            resize: vertical;
+            height: 200px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Publicador Gibbor</h1>
+        <form id="emailForm">
+            <label for="from">De:</label>
+            <input type="email" id="from" name="from" value="cpl@trt19.jus.br" readonly>
+
+            <label for="to">Para:</label>
+            <input type="email" id="to" name="to" value="contato@gibborbrasil.com.br; contatogibbor@gmail.com" readonly>
+
+            <label for="subject">Assunto:</label>
+            <input type="text" id="subject" name="subject" value="PUBLICAÇÃO DE MATÉRIA" readonly>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message">Publicar no próximo dia útil, em jornal de grande circulação, o seguinte texto de interesse do TRT da 19ª Região:
+
+AVISO DE LICITAÇÃO
+Pregão Eletrônico Nº 00013/2024 - UASG 080022
+Nº do PROAD: 5084/2023.
+Objeto: Contratação de empresa para a prestação de serviços de limpeza, asseio e conservação de bens móveis e imóveis, nas dependências do Tribunal Regional do Trabalho da 19ª Região, a serem executados nas unidades localizadas na capital e no interior do Estado totalizando 41.778,00m² de área física.
+Edital disponível em: https://www.gov.br/compras/edital/80022-5-00013-2024. Cadastramento das Propostas: a partir de 03/12/2024, no site https://www.gov.br/compras/, o interessado deverá seguir os seguintes caminhos: SERVIÇOS DO FORNECEDOR > DISPENSA/LICITAÇÃO ELETRÔNICA (NOVO) > TODAS AS COMPRAS > MODALIDADE(PREGÃO) > UNIDADE COMPRADORA(080022) > PESQUISAR. Prosseguir com o cadastramento. Abertura das Propostas: 18/12/2024 às 10h00 no site www.gov.br/compras.
+Flávio de Souza Cunha Júnior
+Agente Público de Contratação.
+
+Favor confirmar o recebimento desta mensagem. 
+Telefones para contato: (82) 2121-8181 | (82) 2121-8182. WhatsApp: +558221218223 ou https://api.whatsapp.com/send?phone=558221218223</textarea>
+
+            <div class="buttons">
+                <button type="button" onclick="sendEmail()">ENVIAR</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function sendEmail() {
+            const form = document.getElementById('emailForm');
+            const from = form.elements['from'].value;
+            const to = form.elements['to'].value;
+            const subject = form.elements['subject'].value;
+            const message = form.elements['message'].value;
+
+            const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
